@@ -3,3 +3,7 @@
 .red-bg {
   background-color: #FF5A5F !important;
 }
+
+html {
+  box-sizing: border-box;
+}
