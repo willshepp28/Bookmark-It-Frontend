@@ -28,7 +28,10 @@ export class HomeComponent implements OnInit {
     });
 
     this.createBookmark = this.formBuilder.group({
-      title: ['', Validators.required]
+      title: ['', Validators.required],
+      subject: ['', Validators.required],
+      description: ['', Validators.required],
+      link_url: ['', Validators.required],
     })
   }
 
