@@ -9,6 +9,9 @@ export class BookmarksService {
 
   constructor(private http: HttpClient) { }
 
+  createBookmark(body) {
+    return this.http.post(this.baseUrl + '/createBookmarkByTopic', body)
+  }
 
   getBookmarks() {
     return this.http.get(this.baseUrl + '/getLatestBookmarks');

@@ -6,15 +6,62 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <button class="btn light-purple-bg white-color">Create new Topic</button>
+        <button class="btn light-purple-bg white-color" data-toggle="modal" data-target="#exampleModal">Create new Topic</button>
       </div>
       <div class="col-sm">
-        <button class="btn sea-green-bg white-color">Create new Bookmark</button>
+        <button class="btn sea-green-bg white-color" data-toggle="modal" data-target="#exampleModalTwo">Create new Bookmark</button>
       </div>
     </div>
   </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create New Topic</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="createTopic" (ngSubmit)="addNewTopic()">
+          <div class="form-group">
+            <label for="topic_title">Title</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalTwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create New Bookmark</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="createBookmark" (ngSubmit)="addNewBookmark()">
+          <div class="form-group">
+            <label for="topic_title">Title</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- bookmark -->

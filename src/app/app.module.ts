@@ -14,6 +14,7 @@ import { HomeComponent } from './core/routes/home/home/home.component';
 
 // Services
 import { BookmarksService } from './core/services/bookmarks/bookmarks.service';
+import { TopicsService } from './core/services/topics/topics.service';
 
 
 
@@ -33,7 +34,8 @@ import { BookmarksService } from './core/services/bookmarks/bookmarks.service';
     HttpClientModule
   ],
   providers: [
-    BookmarksService
+    BookmarksService,
+    TopicsService
   ],
   bootstrap: [AppComponent]
 })
