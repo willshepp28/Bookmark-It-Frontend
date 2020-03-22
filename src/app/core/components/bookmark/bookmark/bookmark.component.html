@@ -3,11 +3,11 @@
   <div class="row">
       <div class="col-sm-6" style="margin-bottom: 20px; margin-left: 15x;" *ngFor="let bookmark of bookmarks">
         <div class="card">
-          <h5 class="card-header">{{bookmark.title}}</h5>
+          <h5 class="card-header"></h5>
           <div class="card-body">
             <h5 class="card-title">{{bookmark.subject}}</h5>
             <p class="card-text">{{bookmark.description}}</p>
-            <a href="#" class="btn light-purple-bg white-color">Go somewhere</a>
+            <a href="{{bookmark.link_url}}" class="btn blue-bg white-color">Click to Visit Link</a>
           </div>
         </div>
       </div>
