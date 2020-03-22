@@ -13,6 +13,6 @@ export class TopicsService {
   ) { }
 
   createTopic(topic) {
-    return this.http.post(this.baseUrl + '/createNewTopic', topic);
+    return this.http.post(this.baseUrl + '/topics/createNewTopic', topic);
   }
 }

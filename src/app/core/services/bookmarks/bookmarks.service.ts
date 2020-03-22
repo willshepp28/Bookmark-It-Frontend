@@ -11,10 +11,10 @@ export class BookmarksService {
   constructor(private http: HttpClient) { }
 
   createBookmark(bookmark) {
-    return this.http.post(this.baseUrl + '/createBookmarkByTopic', bookmark);
+    return this.http.post(this.baseUrl + '/bookmarks/createBookmarkByTopic', bookmark);
   }
 
   getBookmarks() {
-    return this.http.get(this.baseUrl + '/getLatestBookmarks');
+    return this.http.get(this.baseUrl + '/bookmarks/getLatestBookmarks');
   }
 }
