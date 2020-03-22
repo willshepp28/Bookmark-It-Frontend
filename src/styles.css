@@ -7,3 +7,34 @@
 html {
   box-sizing: border-box;
 }
+
+body {
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* https://images.unsplash.com/photo-1517596107285-5ce3dd0f61df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80 */
+
+.jumbotron {
+  /* background-image: url("https://images.unsplash.com/photo-1517596107285-5ce3dd0f61df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80");
+  background-size: cover; */
+}
+
+.light-purple-bg {
+  background-color: #CD77D7 !important;
+}
+
+.white-color {
+  color: white !important;
+}
+
+.sea-green-bg {
+  background-color: #84D990 !important;
+}
+
+.purple-bg {
+  background-color: #6F44C6;
+}
+
+

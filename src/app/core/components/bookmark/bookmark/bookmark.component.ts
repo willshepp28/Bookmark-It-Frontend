@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bookmark',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookmark.component.css']
 })
 export class BookmarkComponent implements OnInit {
+  @Input() bookmarks: any [];
 
   constructor() { }
 
