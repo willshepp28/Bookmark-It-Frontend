@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import {ReactiveFormsModule} from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,9 @@ import { HomeComponent } from './core/routes/home/home/home.component';
 // Services
 import { BookmarksService } from './core/services/bookmarks/bookmarks.service';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +29,7 @@ import { BookmarksService } from './core/services/bookmarks/bookmarks.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [
