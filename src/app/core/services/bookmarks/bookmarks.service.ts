@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookmarksService {
-  baseUrl = 'http://localhost:3000/api/bookmarks';
+  baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  createBookmark(body) {
-    return this.http.post(this.baseUrl + '/createBookmarkByTopic', body)
+  createBookmark(bookmark) {
+    return this.http.post(this.baseUrl + '/createBookmarkByTopic', bookmark);
   }
 
   getBookmarks() {

@@ -36,22 +36,20 @@ export class HomeComponent implements OnInit {
   }
 
 
-  loadBookmarks(){
+  loadBookmarks() {
     return this.bookmarkService.getBookmarks().subscribe(data => {
-      console.log(data);
       this.bookmarks = data;
     });
   }
 
 
-  addNewTopic(topic){
-    return this.topicService.createTopic(topic);
+  addNewTopic() {
+    return this.topicService.createTopic(this.createTopic.value).subscribe();
   }
 
 
-  addNewBookmark(bookmark){
-    console.log(this.createBookmark.value)
-    return this.bookmarkService.createBookmark(bookmark);
+  addNewBookmark() {
+    return this.bookmarkService.createBookmark(this.createBookmark.value).subscribe();
   }
 
 }
