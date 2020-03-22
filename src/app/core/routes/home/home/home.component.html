@@ -29,8 +29,8 @@
       <div class="modal-body">
         <form [formGroup]="createTopic" (ngSubmit)="addNewTopic()">
           <div class="form-group">
-            <label for="topic_title">Title</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" formControlName="title" placeholder="Title">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -54,7 +54,19 @@
         <form [formGroup]="createBookmark" (ngSubmit)="addNewBookmark()">
           <div class="form-group">
             <label for="topic_title">Title</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+            <input type="text" class="form-control" formControlName="title" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <label for="topic_title">Subject</label>
+            <input type="text" class="form-control" formControlName="subject" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <label for="topic_title">Description</label>
+            <input type="text" class="form-control" formControlName="description" placeholder="Description">
+          </div>
+          <div class="form-group">
+            <label for="topic_title">Link Url</label>
+            <input type="text" class="form-control" formControlName="link_url"  placeholder="Link Url">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

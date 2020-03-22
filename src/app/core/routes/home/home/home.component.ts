@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookmarksService } from 'src/app/core/services/bookmarks/bookmarks.service';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { TopicsService } from 'src/app/core/services/topics/topics.service';
 
 
@@ -11,8 +11,8 @@ import { TopicsService } from 'src/app/core/services/topics/topics.service';
 })
 export class HomeComponent implements OnInit {
   bookmarks: any = [];
-  createTopic: any;
-  createBookmark: any;
+  createTopic: FormGroup;
+  createBookmark: FormGroup;
 
   constructor(
     public bookmarkService: BookmarksService,
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       subject: ['', Validators.required],
       description: ['', Validators.required],
       link_url: ['', Validators.required],
-    })
+    });
   }
 
 
@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
 
 
   addNewBookmark(bookmark){
+    console.log(this.createBookmark.value)
     return this.bookmarkService.createBookmark(bookmark);
   }
 
