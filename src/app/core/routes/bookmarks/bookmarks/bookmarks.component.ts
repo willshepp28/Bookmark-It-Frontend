@@ -8,7 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./bookmarks.component.css']
 })
 export class BookmarksComponent implements OnInit {
-  bookmarks: any = [];
+  bookmarks: any;
+  topic: any = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -17,8 +18,28 @@ export class BookmarksComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.bookmarks = this.bookmarkService.getBookmarksByTopic(params.get('topicName')).subscribe();
+      this.bookmarkService.getBookmarksByTopic(params.get('topicName')).subscribe(data => {
+        this.assignBookmarks(data);
+        this.assignTopic(data);
+      });
     });
   }
+
+
+
+
+  // Methods
+  assignBookmarks(data){
+    this.bookmarks = data.Bookmarks;
+  }
+
+  assignTopic(data) {
+    delete data.Bookmarks;
+    this.topic = data;
+  }
+
+
+
+
 
 }
