@@ -11,6 +11,7 @@ import { TopicsService } from 'src/app/core/services/topics/topics.service';
 })
 export class HomeComponent implements OnInit {
   bookmarks: any = [];
+  topics: any = [];
   createTopic: FormGroup;
   createBookmark: FormGroup;
 
@@ -37,8 +38,8 @@ export class HomeComponent implements OnInit {
 
 
   loadBookmarks() {
-    return this.bookmarkService.getBookmarks().subscribe(data => {
-      this.bookmarks = data;
+    return this.topicService.getTopic().subscribe(data => {
+      this.topics = data;
     });
   }
 

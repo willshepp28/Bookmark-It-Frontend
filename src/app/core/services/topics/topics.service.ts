@@ -15,4 +15,8 @@ export class TopicsService {
   createTopic(topic) {
     return this.http.post(this.baseUrl + '/topics/createNewTopic', topic);
   }
+
+  getTopic() {
+    return this.http.get(this.baseUrl + '/topics/');
+  }
 }
