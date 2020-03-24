@@ -10,7 +10,6 @@ import { TopicsService } from 'src/app/core/services/topics/topics.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  bookmarks: any = [];
   topics: any = [];
   createTopic: FormGroup;
   createBookmark: FormGroup;

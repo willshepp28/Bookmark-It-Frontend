@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class BookmarksService {
   }
 
   getBookmarksByTopic(topic){
-    return this.http.post(this.baseUrl + '/bookmarks/getBookmarksByTopicTitle', topic);
+    const params = new HttpParams().set('name', topic);
+    return this.http.get(this.baseUrl + '/bookmarks/getBookmarksByTopicTitle', {params});
   }
 }
