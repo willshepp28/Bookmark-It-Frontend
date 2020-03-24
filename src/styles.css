@@ -44,3 +44,11 @@ body {
 .black-bg {
   background-color: #050215 !important;
 }
+
+button {
+  box-shadow: 3px 3px 0 rgba(135,134,134,.45) !important;
+}
+
+.box-shadow {
+  box-shadow: 3px 3px 0 rgba(135,134,134,.45) !important;
+}

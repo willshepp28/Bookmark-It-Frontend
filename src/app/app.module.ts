@@ -15,6 +15,7 @@ import { HomeComponent } from './core/routes/home/home/home.component';
 // Services
 import { BookmarksService } from './core/services/bookmarks/bookmarks.service';
 import { TopicsService } from './core/services/topics/topics.service';
+import { BookmarksComponent } from './core/routes/bookmarks/bookmarks/bookmarks.component';
 
 
 
@@ -25,7 +26,8 @@ import { TopicsService } from './core/services/topics/topics.service';
     HomeComponent,
     CreateComponent,
     BookmarkComponent,
-    HeaderComponent
+    HeaderComponent,
+    BookmarksComponent
   ],
   imports: [
     BrowserModule,
