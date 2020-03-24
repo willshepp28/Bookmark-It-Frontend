@@ -17,4 +17,8 @@ export class BookmarksService {
   getBookmarks() {
     return this.http.get(this.baseUrl + '/bookmarks/getLatestBookmarks');
   }
+
+  getBookmarksByTopic(topic){
+    return this.http.post(this.baseUrl + '/bookmarks/getBookmarksByTopicTitle', topic);
+  }
 }

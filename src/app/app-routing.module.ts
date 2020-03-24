@@ -7,7 +7,7 @@ import { BookmarksComponent } from './core/routes/bookmarks/bookmarks/bookmarks.
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent},
-  { path: 'bookmarks', component: BookmarksComponent}
+  { path: 'bookmarks/:topicName', component: BookmarksComponent}
 ];
 
 @NgModule({
