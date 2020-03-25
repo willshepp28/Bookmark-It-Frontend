@@ -40,6 +40,11 @@
               </div>
             </div>
             <label for="title">Title</label>
+            <div *ngIf="submitted && createTopic.controls.title.errors" class="text-danger">
+              <div *ngIf="createTopic.controls.title.errors.required">Title is required</div>
+              <div *ngIf="createTopic.controls.title.errors.minlength">Title must be at least 3 characters</div>
+              <div *ngIf="createTopic.controls.title.errors.maxlength">Title can only have a maximum of 15 characters</div>
+          </div>
             <input type="text" class="form-control" formControlName="title" placeholder="Title">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -75,18 +80,38 @@
             </div>
             <label for="topic_title">Title</label>
             <input type="text" class="form-control" formControlName="title" placeholder="Title">
+            <div *ngIf="submitted && createBookmark.controls.title.errors" class="text-danger">
+              <div *ngIf="createBookmark.controls.title.errors.required">Title is required</div>
+              <div *ngIf="createBookmark.controls.title.errors.minlength">Title must be at least 3 characters</div>
+              <div *ngIf="createBookmark.controls.title.errors.maxlength">Title can only have a maximum of 15 characters</div>
+          </div>
           </div>
           <div class="form-group">
             <label for="topic_title">Subject</label>
             <input type="text" class="form-control" formControlName="subject" placeholder="Subject">
+            <div *ngIf="submitted && createBookmark.controls.subject.errors" class="text-danger">
+              <div *ngIf="createBookmark.controls.subject.errors.required">Subject is required</div>
+              <div *ngIf="createBookmark.controls.subject.errors.minlength">Subject must be at least 3 characters</div>
+              <div *ngIf="createBookmark.controls.subject.errors.maxlength">Subject can only have a maximum of 100 characters</div>
+          </div>
           </div>
           <div class="form-group">
             <label for="topic_title">Description</label>
             <input type="text" class="form-control" formControlName="description" placeholder="Description">
+            <div *ngIf="submitted && createBookmark.controls.description.errors" class="text-danger">
+              <div *ngIf="createBookmark.controls.description.errors.required">Description is required</div>
+              <div *ngIf="createBookmark.controls.description.errors.minlength">Description must be at least 3 characters</div>
+              <div *ngIf="createBookmark.controls.description.errors.maxlength">Description can only have a maximum of 500 characters</div>
+          </div>
           </div>
           <div class="form-group">
             <label for="topic_title">Link Url</label>
             <input type="text" class="form-control" formControlName="link_url"  placeholder="Link Url">
+            <div *ngIf="submitted && createBookmark.controls.link_url.errors" class="text-danger">
+              <div *ngIf="createBookmark.controls.link_url.errors.required">Link Url is required</div>
+              <div *ngIf="createBookmark.controls.link_url.errors.minlength">Link Url must be at least 3 characters</div>
+              <div *ngIf="createBookmark.controls.link_url.errors.maxlength">Link Url can only have a maximum of 300 characters</div>
+          </div>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

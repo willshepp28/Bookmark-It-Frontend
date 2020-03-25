@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   createTopic: FormGroup;
   createBookmark: FormGroup;
   showTopics: boolean;
+  submitted = false;
   showTopicMessage = {
     show: false,
     message: false
@@ -39,14 +40,14 @@ export class HomeComponent implements OnInit {
     this.loadBookmarks();
 
     this.createTopic = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.minLength(1)]],
+      title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
     });
 
     this.createBookmark = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-      subject: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(500)]],
-      link_url: ['', [Validators.required, Validators.minLength(1)]],
+      title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+      subject: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      description: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(500)]],
+      link_url: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(300)]],
     });
   }
 
@@ -62,30 +63,48 @@ export class HomeComponent implements OnInit {
 
 
   addNewTopic() {
-    return this.topicService.createTopic(this.createTopic.value).pipe(
-      finalize(() => this.clearFormAndRemoveMessage('createTopic', 'showTopicMessage'))
-    ).subscribe(
-    success => {
-      this.setMessageVisiblityAndStatus('showTopicMessage', true, true);
-    },
-    error => {
-      this.setMessageVisiblityAndStatus('showTopicMessage', true, false);
-    });
+    this.submitted = true;
+
+    // stop the process here if form is invalid
+    if (this.createBookmark.invalid) {
+      console.log("invalid")
+        return;
+    }
+
+    console.log("valid")
+    // return this.topicService.createTopic(this.createTopic.value).pipe(
+    //   finalize(() => this.clearFormAndRemoveMessage('createTopic', 'showTopicMessage'))
+    // ).subscribe(
+    // success => {
+    //   this.setMessageVisiblityAndStatus('showTopicMessage', true, true);
+    // },
+    // error => {
+    //   this.setMessageVisiblityAndStatus('showTopicMessage', true, false);
+    // });
   }
 
 
 
   addNewBookmark() {
-    return this.bookmarkService.createBookmark(this.createBookmark.value).pipe(
-      finalize(() =>  this.clearFormAndRemoveMessage('createBookmark', 'showBookmarkMessage'))
-    ).subscribe(
-    success => {
-      this.setMessageVisiblityAndStatus('showBookmarkMessage', true, true);
-    },
-    error => {
-      this.setMessageVisiblityAndStatus('showBookmarkMessage', true, false);
+    this.submitted = true;
+
+    // stop the process here if form is invalid
+    if (this.createBookmark.invalid) {
+      console.log("invalid")
+        return;
     }
-    );
+
+    console.log("valid")
+    // return this.bookmarkService.createBookmark(this.createBookmark.value).pipe(
+    //   finalize(() =>  this.clearFormAndRemoveMessage('createBookmark', 'showBookmarkMessage'))
+    // ).subscribe(
+    // success => {
+    //   this.setMessageVisiblityAndStatus('showBookmarkMessage', true, true);
+    // },
+    // error => {
+    //   this.setMessageVisiblityAndStatus('showBookmarkMessage', true, false);
+    // }
+    // );
   }
 
 
