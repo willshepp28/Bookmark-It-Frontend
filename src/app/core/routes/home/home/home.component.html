@@ -29,6 +29,16 @@
       <div class="modal-body">
         <form [formGroup]="createTopic" (ngSubmit)="addNewTopic()">
           <div class="form-group">
+            <div id="topic-message-container" *ngIf="showTopicMessage.show">
+              <div [ngSwitch]="showTopicMessage.message">
+                <div class="alert alert-success" role="alert" *ngSwitchCase="true">
+                  Topic Successfully created!!!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngSwitchCase="false">
+                  Topic couldnt be created, try again!!!
+                </div>
+              </div>
+            </div>
             <label for="title">Title</label>
             <input type="text" class="form-control" formControlName="title" placeholder="Title">
           </div>
@@ -53,6 +63,16 @@
       <div class="modal-body">
         <form [formGroup]="createBookmark" (ngSubmit)="addNewBookmark()">
           <div class="form-group">
+            <div id="bookmark-message-container" *ngIf="showBookmarkMessage.show">
+              <div [ngSwitch]="showBookmarkMessage.message">
+                <div class="alert alert-success" role="alert" *ngSwitchCase="true">
+                  Bookmark Successfully created!!!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngSwitchCase="false">
+                  Bookmark couldnt be created, try again!!!
+                </div>
+              </div>
+            </div>
             <label for="topic_title">Title</label>
             <input type="text" class="form-control" formControlName="title" placeholder="Title">
           </div>
