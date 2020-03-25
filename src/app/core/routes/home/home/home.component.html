@@ -97,6 +97,13 @@
 
 
 <!-- Topics -->
-<app-topic [topics]="topics"></app-topic>
+<div *ngIf="showTopics; else showLoadingSpinner">
+  <app-topic [topics]="topics"></app-topic>
+</div>
+
+<ng-template #showLoadingSpinner>
+  <ngx-spinner></ngx-spinner>
+</ng-template>
+
 
 

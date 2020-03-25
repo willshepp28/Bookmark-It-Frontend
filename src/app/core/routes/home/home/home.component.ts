@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { TopicsService } from 'src/app/core/services/topics/topics.service';
 import { finalize } from 'rxjs/operators';
 
+import { NgxSpinnerService } from "ngx-spinner";
+
 
 @Component({
   selector: 'app-home',
@@ -14,6 +16,7 @@ export class HomeComponent implements OnInit {
   topics: any = [];
   createTopic: FormGroup;
   createBookmark: FormGroup;
+  showTopics: boolean;
   showTopicMessage = {
     show: false,
     message: false
@@ -28,7 +31,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public bookmarkService: BookmarksService,
     private topicService: TopicsService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -48,8 +52,10 @@ export class HomeComponent implements OnInit {
 
 
   loadBookmarks() {
+    this.startLoadingSpinner();
     return this.topicService.getTopic().subscribe(data => {
       this.topics = data;
+      this.stopLoadingSpinner();
     });
   }
 
@@ -108,6 +114,16 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this[messageName].show = false;
     }, time);
+  }
+
+  startLoadingSpinner(){
+    this.showTopics = false;
+    this.spinner.show();
+  }
+
+  stopLoadingSpinner() {
+    this.showTopics = true;
+    this.spinner.hide();
   }
 
 }
