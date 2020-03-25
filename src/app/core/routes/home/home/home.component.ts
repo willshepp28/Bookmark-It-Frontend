@@ -67,20 +67,18 @@ export class HomeComponent implements OnInit {
 
     // stop the process here if form is invalid
     if (this.createBookmark.invalid) {
-      console.log("invalid")
         return;
     }
 
-    console.log("valid")
-    // return this.topicService.createTopic(this.createTopic.value).pipe(
-    //   finalize(() => this.clearFormAndRemoveMessage('createTopic', 'showTopicMessage'))
-    // ).subscribe(
-    // success => {
-    //   this.setMessageVisiblityAndStatus('showTopicMessage', true, true);
-    // },
-    // error => {
-    //   this.setMessageVisiblityAndStatus('showTopicMessage', true, false);
-    // });
+    return this.topicService.createTopic(this.createTopic.value).pipe(
+      finalize(() => this.clearFormAndRemoveMessage('createTopic', 'showTopicMessage'))
+    ).subscribe(
+    success => {
+      this.setMessageVisiblityAndStatus('showTopicMessage', true, true);
+    },
+    error => {
+      this.setMessageVisiblityAndStatus('showTopicMessage', true, false);
+    });
   }
 
 
@@ -90,21 +88,19 @@ export class HomeComponent implements OnInit {
 
     // stop the process here if form is invalid
     if (this.createBookmark.invalid) {
-      console.log("invalid")
         return;
     }
 
-    console.log("valid")
-    // return this.bookmarkService.createBookmark(this.createBookmark.value).pipe(
-    //   finalize(() =>  this.clearFormAndRemoveMessage('createBookmark', 'showBookmarkMessage'))
-    // ).subscribe(
-    // success => {
-    //   this.setMessageVisiblityAndStatus('showBookmarkMessage', true, true);
-    // },
-    // error => {
-    //   this.setMessageVisiblityAndStatus('showBookmarkMessage', true, false);
-    // }
-    // );
+    return this.bookmarkService.createBookmark(this.createBookmark.value).pipe(
+      finalize(() =>  this.clearFormAndRemoveMessage('createBookmark', 'showBookmarkMessage'))
+    ).subscribe(
+    success => {
+      this.setMessageVisiblityAndStatus('showBookmarkMessage', true, true);
+    },
+    error => {
+      this.setMessageVisiblityAndStatus('showBookmarkMessage', true, false);
+    }
+    );
   }
 
 
@@ -116,7 +112,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  setMessageVisiblityAndStatus(messageName, showStatus, messageStatus){
+  setMessageVisiblityAndStatus(messageName, showStatus, messageStatus) {
     this[messageName].show = showStatus;
     this[messageName].message = messageStatus;
   }
@@ -129,13 +125,13 @@ export class HomeComponent implements OnInit {
 
 
 
-  removeMessage(messageName, time){
+  removeMessage(messageName, time) {
     setTimeout(() => {
       this[messageName].show = false;
     }, time);
   }
 
-  startLoadingSpinner(){
+  startLoadingSpinner() {
     this.showTopics = false;
     this.spinner.show();
   }
