@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
   createTopic: FormGroup;
   createBookmark: FormGroup;
   showTopics: boolean;
-  submitted = false;
+  topicIsSubmitted = false;
+  bookmarkIsSubmitted = false;
   showTopicMessage = {
     show: false,
     message: false
@@ -63,7 +64,7 @@ export class HomeComponent implements OnInit {
 
 
   addNewTopic() {
-    this.submitted = true;
+    this.topicIsSubmitted = true;
 
     // stop the process here if form is invalid
     if (this.createBookmark.invalid) {
@@ -84,7 +85,7 @@ export class HomeComponent implements OnInit {
 
 
   addNewBookmark() {
-    this.submitted = true;
+    this.bookmarkIsSubmitted = true;
 
     // stop the process here if form is invalid
     if (this.createBookmark.invalid) {
