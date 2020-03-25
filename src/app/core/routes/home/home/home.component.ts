@@ -39,14 +39,14 @@ export class HomeComponent implements OnInit {
     this.loadBookmarks();
 
     this.createTopic = this.formBuilder.group({
-      title: ['', Validators.required],
+      title: ['', [Validators.required, Validators.minLength(1)]],
     });
 
     this.createBookmark = this.formBuilder.group({
-      title: ['', Validators.required],
-      subject: ['', Validators.required],
-      description: ['', Validators.required],
-      link_url: ['', Validators.required],
+      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+      subject: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+      description: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(500)]],
+      link_url: ['', [Validators.required, Validators.minLength(1)]],
     });
   }
 
