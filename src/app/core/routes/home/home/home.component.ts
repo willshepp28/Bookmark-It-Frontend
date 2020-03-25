@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
   }
 
 
+
   addNewTopic() {
     return this.topicService.createTopic(this.createTopic.value).pipe(
       finalize(() => this.clearFormAndRemoveMessage('createTopic', 'showTopicMessage'))
@@ -65,6 +66,7 @@ export class HomeComponent implements OnInit {
       this.setMessageVisiblityAndStatus('showTopicMessage', true, false);
     });
   }
+
 
 
   addNewBookmark() {
@@ -80,10 +82,13 @@ export class HomeComponent implements OnInit {
     );
   }
 
+
+
   clearFormAndRemoveMessage(formName, messageName) {
     this.clearForm(formName);
     this.removeMessage(messageName, 2000);
   }
+
 
 
   setMessageVisiblityAndStatus(messageName, showStatus, messageStatus){
@@ -92,9 +97,11 @@ export class HomeComponent implements OnInit {
   }
 
 
+
   clearForm(formName) {
     this[formName].reset();
   }
+
 
 
   removeMessage(messageName, time){
